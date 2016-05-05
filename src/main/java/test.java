@@ -21,7 +21,7 @@ public class test {
     public void setUp() throws Exception {
         // set up appium
 
-        File appDir = new File("/Users/KushiHarsh/appium/build2");
+        File appDir = new File("/Users/vanithakasala/vanitha");
         File app = new File(appDir, "Albert.app");
         DesiredCapabilities capabilities = new DesiredCapabilities();
 //        capabilities.setCapability(CapabilityType.BROWSER_NAME, "iOS");
@@ -35,24 +35,15 @@ public class test {
     }
 
     @Test
-    public void testLogin() throws InterruptedException {
+    public void test1SignUp() throws InterruptedException {
 
-        driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[2]")).click();
+        Thread.sleep(10000);
 
-        driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATextField[1]")).sendKeys("test1003@mailinator.com");
-        driver.findElement(By.name("BtnNextEnabled")).click();
+        driver.findElement(By.xpath("//*[@name='BtnSignUpEnabled']")).click();
 
-        for (int i = 0; i < 4; i++) {
-            driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[3]")).click();
-        }
-    }
+        driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATextField[1]")).sendKeys("test1008@mailinator.com");
 
-    @Test
-    public void testSignUp() throws InterruptedException {
-
-        driver.findElement(By.name("BtnSignUpEnabled")).click();
-        driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATextField[1]")).sendKeys("test1002@mailinator.com");
-        driver.findElement(By.name("BtnNextEnabled")).click();
+        driver.findElement(By.xpath("//*[@name='BtnNextEnabled']")).click();
 
         for (int i = 0; i < 8; i++) {
             driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[3]")).click();
@@ -60,11 +51,27 @@ public class test {
 
         driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATextField[1]")).sendKeys("Century Innovations Ltd");
 
-        driver.findElement(By.name("Century Innovations Ltd")).click();
+        driver.findElement(By.xpath("//*[@name='Century Innovations Ltd']")).click();
 
-        driver.findElement(By.name("BtnFinish")).click();
+        driver.findElement(By.xpath("//*[@name='BtnFinish']")).click();
+
 
     }
+
+    @Test
+    public void test2Login() throws InterruptedException {
+
+        driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[2]")).click();
+
+        driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATextField[1]")).sendKeys("test1002@mailinator.com");
+
+        driver.findElement(By.xpath("//*[@name='BtnNextEnabled']")).click();
+
+        for (int i = 0; i < 4; i++) {
+            driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[3]")).click();
+        }
+    }
+
 
     @AfterMethod
     public void tearDown() throws Exception {
