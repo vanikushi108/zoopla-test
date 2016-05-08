@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-        tags = {"@signup"},
+        tags = {},
         features = "src/main/resources",
         format = {"html:target/cucumber"}
 )

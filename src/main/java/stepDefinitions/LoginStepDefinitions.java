@@ -1,18 +1,17 @@
-package pageObject;
+package stepDefinitions;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
+import util.Driver;
+import pageObject.LoginPage;
 
 
 public class LoginStepDefinitions {
 
-    AppConnector app = AppConnector.getInstance(); //new AppConnector();
-    RemoteWebDriver driver = app.sharedDriver();
-    LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+    LoginPage loginPage = PageFactory.initElements(Driver.driver, LoginPage.class);
 
     @Given("^I tap on Login$")
     public void i_tap_on_Login() {
@@ -37,10 +36,5 @@ public class LoginStepDefinitions {
     @Then("^login successful$")
     public void login_successful() {
 
-    }
-
-    @Then("^I logout$")
-    public void I_logout() {
-        loginPage.logout();
     }
 }
