@@ -17,12 +17,12 @@ public class Hooks {
 
     }
 
-//    @After
-//    public void tear(Scenario scenario) {
-//
-//        Driver.driver.quit();
-//
-//        System.out.println("After Scenario");
-//    }
+   @After
+    public void tear(Scenario scenario) {
+
+        Driver.driver.quit();
+
+       System.out.println("After Scenario");
+    }
 }
 

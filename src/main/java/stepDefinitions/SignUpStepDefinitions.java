@@ -24,13 +24,6 @@ public class SignUpStepDefinitions {
         signUpPage.enterEmail(email);
     }
 
-
-//    @And("^I click on Next button$")
-//    public void I_click_on_Next_button() {
-//
-//        signUpPage.tapOnNext();
-//    }
-
     @Then("^I should be prompted to enter pincode as \"([^\"]*)\"$")
     public void i_should_be_prompted_to_enter_pincode(String pin) {
 

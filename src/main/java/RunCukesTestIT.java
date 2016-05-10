@@ -5,12 +5,11 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-        tags = {"@invoice"},
+        tags = {},
         features = "src/main/resources",
         format = {"html:target/cucumber"}
 )
 
 public class RunCukesTestIT {
-
 
 }

@@ -20,7 +20,7 @@ public class CreateInvoiceStepdefinitions {
     }
 
     @When("^I click on add invoice button$")
-    public void i_click_on_add_invoice_button()  {
+    public void i_click_on_add_invoice_button() throws Exception  {
         createInvoicePage.clickOnInvoice();
     }
 
@@ -28,15 +28,17 @@ public class CreateInvoiceStepdefinitions {
     public void i_should_see_new_invoice_page()  {
         createInvoicePage.verifyNewInvoiceButton();
     }
+
     @Then("^I add ammount GBP \"([^\"]*)\"$")
-    public void i_add_ammount_GBP(String arg1) throws Throwable {
-        createInvoicePage.addAmount();
+    public void i_add_ammount_GBP(String amount) throws Throwable {
+        createInvoicePage.addAmount(amount);
 
           }
 
-    @Then("^I add invoice description$")
-    public void i_add_invoice_description() throws Throwable {
-        createInvoicePage.addInvoiceDescription();
+    @Then("^I add invoice description as \"([^\"]*)\"$")
+    public void i_add_invoice_description(String InvoiceDescription) throws Throwable {
+
+        createInvoicePage.addInvoiceDescription(InvoiceDescription);
 
          }
 
@@ -52,19 +54,20 @@ public class CreateInvoiceStepdefinitions {
 
     }
 
-    @Then("^I add recipients email$")
-    public void i_add_recipients_email() throws Throwable {
-        createInvoicePage.addRecipientsEmail();
+    @Then("^I add recipients email as \"([^\"]*)\"$")
+    public void i_add_recipients_email(String RecipientEmail) throws Throwable {
+        createInvoicePage.addRecipientsEmail(RecipientEmail);
 
          }
 
     @When("^I click on send button$")
     public void i_click_on_send_button() throws Throwable {
+        createInvoicePage.clickOnSendButton();
 
     }
 
-    @Then("^Client should recieve invoice$")
-    public void client_should_recieve_invoice() throws Throwable {
+    @Then("^Client should receive invoice$")
+    public void client_should_receive_invoice() throws Throwable {
 
     }
 

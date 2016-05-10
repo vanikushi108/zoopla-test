@@ -13,9 +13,11 @@ public class CreateInvoicePage {
         Driver.driver.findElement(By.xpath("//*[@name='BtnNewInvoice']")).isDisplayed();
     }
 
-    public void clickOnInvoice() {
+    public void clickOnInvoice() throws Exception {
 
-        Driver.driver.findElement(By.xpath("//*[@name='BtnNewInvoice']")).click();
+        Thread.sleep(3000);
+
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[5]")).click();
     }
 
     public void verifyNewInvoiceButton() {
@@ -23,21 +25,18 @@ public class CreateInvoicePage {
         Driver.driver.findElement(By.xpath("//*[@name='New Invoice']")).isDisplayed();
     }
 
-    public void addAmount() {
+    public void addAmount(String amount) {
 
-        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATextField[1]")).sendKeys("1000");
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATextField[1]")).sendKeys(amount);
     }
 
-    public void addInvoiceDescription() {
+    public void addInvoiceDescription(String InvoiceDescription) {
 
-
-        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATextField[4]")).sendKeys("New April Invoice");
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATextField[4]")).sendKeys(InvoiceDescription);
 
     }
-
 
     public void addRecipientsName() {
-
 
         Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATextField[5]")).click();
 
@@ -50,21 +49,23 @@ public class CreateInvoicePage {
         }
         Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[2]")).click();
 
-        Driver.driver.findElement(By.xpath("//*[@name='done']")).click();
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[4]")).click();
 
     }
 
-    public void addRecipientsEmail() {
+    public void addRecipientsEmail(String RecipientEmail) {
 
+        String email = "vanikushi@mailinator.com";
 
-        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATextField[6]/UIATextField[1]")).sendKeys("vanitha@getalbert.com");
-
+        for (int i = 0, n = email.length(); i < n; i++) {
+            char ch = email.charAt(i);
+            Driver.driver.findElement(By.xpath("//*[@name='" + ch + "']")).click();
+        }
     }
 
     public void clickOnSendButton() {
 
-        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[2]")).click();
+        Driver.driver.findElement(By.xpath("//*[@name='BtnSendEnabled']")).click();
     }
-
 
 }
