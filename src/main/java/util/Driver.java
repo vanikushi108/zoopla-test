@@ -14,7 +14,7 @@ public class Driver {
     public static void initDriver() {
         try {
 
-            File appDir = new File("/Users/KushiHarsh/appium/build2");
+            File appDir = new File("/Users/vanithakasala/albert");
             File app = new File(appDir, "Albert.app");
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability(CapabilityType.VERSION, "9.3");
