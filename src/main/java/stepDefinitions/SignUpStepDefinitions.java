@@ -12,24 +12,24 @@ public class SignUpStepDefinitions {
 
     SignUpPage signUpPage = PageFactory.initElements(Driver.driver, SignUpPage.class);
 
-    @Given("^I tap on sign up$")
-    public void i_tap_on_sign_up() throws Exception {
+    @Given("^I click on sign up$")
+    public void i_click_on_sign_up() throws Exception {
 
         signUpPage.tapOnSignUp();
     }
 
-    @And("^I enter my email address as \"([^\"]*)\"$")
+    @And("^I enter unregistered email address as \"([^\"]*)\"$")
     public void i_enter_my(String email) {
 
         signUpPage.enterEmail(email);
     }
 
 
-    @And("^Tap on Next button$")
-    public void tap_on_Next_button() {
-
-        signUpPage.tapOnNext();
-    }
+//    @And("^I click on Next button$")
+//    public void I_click_on_Next_button() {
+//
+//        signUpPage.tapOnNext();
+//    }
 
     @Then("^I should be prompted to enter pincode as \"([^\"]*)\"$")
     public void i_should_be_prompted_to_enter_pincode(String pin) {

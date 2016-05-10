@@ -13,7 +13,7 @@ public class LoginStepDefinitions {
 
     LoginPage loginPage = PageFactory.initElements(Driver.driver, LoginPage.class);
 
-    @Given("^I tap on Login$")
+    @Given("^I click on Login$")
     public void i_tap_on_Login() {
         loginPage.tapOnLogin();
     }
@@ -23,7 +23,7 @@ public class LoginStepDefinitions {
         loginPage.ValidEmailId();
     }
 
-    @And("^I tap on Next button$")
+    @And("^I click on Next button$")
     public void i_tap_on_Next_button() {
         loginPage.tapOnnext();
     }
@@ -33,8 +33,13 @@ public class LoginStepDefinitions {
         loginPage.validPinCode();
     }
 
-    @Then("^login successful$")
+    @Then("^login occurs$")
     public void login_successful() {
+
+    }
+
+    @Then("^I access my user account.$")
+    public void I_access_my_user_account() {
 
     }
 }

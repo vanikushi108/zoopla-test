@@ -23,6 +23,7 @@ public class Driver {
             capabilities.setCapability("deviceName", "iPhone 6 Plus");
             capabilities.setCapability("platformVersion", "9.3");
             capabilities.setCapability("app", app.getAbsolutePath());
+            //  Appium lancher url provided below
             driver = new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
 
         } catch (Exception e) {
