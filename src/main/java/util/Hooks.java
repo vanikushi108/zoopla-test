@@ -14,6 +14,7 @@ public class Hooks {
         System.out.println("Before Scenario");
 
         Driver.initDriver();
+        Driver.firefoxDriver();
 
     }
 
@@ -21,6 +22,7 @@ public class Hooks {
     public void tear(Scenario scenario) {
 
         Driver.driver.quit();
+        Driver.ffDriver.quit();
 
        System.out.println("After Scenario");
     }

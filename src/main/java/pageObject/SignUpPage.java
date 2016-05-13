@@ -51,8 +51,32 @@ public class SignUpPage {
         }
     }
 
-    public void businessname() {
+    public void businessName()   {
         Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATextField[1]")).sendKeys("Century Innovations Ltd");
 
+        Driver.driver.findElement(By.xpath("//*[@name='Century Innovations Ltd']")).click();
+
+    }
+
+    public void clickGetStarted()   {
+
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[1]")).click();
+    }
+
+    public void clickBtnFinish()   {
+
+        Driver.driver.findElement(By.xpath("//*[@name='BtnFinish']")).click();
+    }
+
+    public void verify_SignUp_Email()   {
+
+        String email = get(EMAIL_KEY);
+
+        String[] parts = email.split("@");
+        String part1 = parts[0];
+
+        Driver.ffDriver.get("https://mailinator.com/inbox2.jsp?public_to="+part1+"#/#public_maildirdiv");
+
+        Driver.ffDriver.findElement(By.xpath("html/body/div[1]/div/div[1]/div/div/div/div[2]/div[3]/div/div/div[2]/div[5]/div")).click();
     }
 }

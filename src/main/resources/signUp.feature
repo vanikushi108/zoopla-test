@@ -13,6 +13,11 @@ Feature: Sign up to Albert
     And I click on Next button
     Then I should be prompted to enter pincode as "<pin>"
     And  I add my business name as "<business>"
+    And I wait for 20 seconds
+    And I click on button Finish
+    And I wait for 20 seconds
+    And I click on GET STARTED
+    And I wait for 60 seconds
     Then I should see notification to get started
     Examples:
       | email  | pin  | business                |

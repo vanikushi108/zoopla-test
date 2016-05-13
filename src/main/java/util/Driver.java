@@ -1,5 +1,7 @@
 package util;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -11,13 +13,15 @@ public class Driver {
 
     public static RemoteWebDriver driver;
 
+    public static WebDriver ffDriver;
+
     public static void initDriver() {
         try {
 
             String workingDir = System.getProperty("user.dir");
             System.out.println("Current working directory" + workingDir);
 
-            File appDir = new File(workingDir+"/app");
+            File appDir = new File(workingDir + "/app");
             File app = new File(appDir, "Albert.app");
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability(CapabilityType.VERSION, "9.3");
@@ -33,4 +37,13 @@ public class Driver {
             System.out.println("Error on intializing Albert App");
         }
     }
+
+    public static void firefoxDriver() {
+        try {
+            ffDriver = new FirefoxDriver();
+        } catch (Exception e) {
+            System.out.println("Error on intializing firefox browser");
+        }
+    }
 }
+
