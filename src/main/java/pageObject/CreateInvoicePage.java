@@ -14,7 +14,7 @@ public class CreateInvoicePage {
         Driver.driver.findElement(By.xpath("//*[@name='BtnNewInvoice']")).isDisplayed();
     }
 
-    public void clickOnInvoice()   {
+    public void clickOnInvoice() {
 
         Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[5]")).click();
     }
@@ -41,7 +41,7 @@ public class CreateInvoicePage {
 
     }
 
-    public void enterRecipientsName()   {
+    public void enterRecipientsName() {
 
         String name = "Aaa";
 
@@ -85,11 +85,11 @@ public class CreateInvoicePage {
         Driver.driver.findElement(By.xpath("//*[@name='Yes, add info']")).click();
     }
 
-    public void verify_Invoice_Email()   {
+    public void verify_Invoice_Email() {
 
         Driver.ffDriver.get("https://mailinator.com/inbox2.jsp?public_to=vanikushi#/#public_maildirdiv");
 
-        Driver.ffDriver.findElement(By.xpath("html/body/div[1]/div/div[1]/div/div/div/div[2]/div[3]/div/div/div[2]/div[5]/div")).click();
+        Driver.ffDriver.findElement(By.xpath("//*[@id='row_public_1464341764-100042682636-vanikushi']/div[2]/div[5]/div")).click();
     }
 
     public void clickOnVat() {
@@ -120,7 +120,7 @@ public class CreateInvoicePage {
 
     public void clickOnCloseButton() {
 
-        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[7]")).click();
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[8]")).click();
     }
 
     public void clickSaveButton() {
@@ -128,13 +128,77 @@ public class CreateInvoicePage {
         Driver.driver.findElement(By.xpath("//*[@name='save']")).click();
     }
 
-    public void enterBankAccountNumber() {
+    // public void enterBankAccountNumber() {
 
-        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATextField[1]")).sendKeys("33339999");
-    }
+    //  Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATextField[1]")).sendKeys("33339999");
+    //}
 
     public void enterBankSortCode() {
 
         Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATextField[2]")).sendKeys("224466");
     }
+
+    public void clickOnPreviewInvoice() {
+
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[7]")).click();
+    }
+
+
+    public void tapOnArrowIcon() {
+
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[1]")).click();
+    }
+
+    public void tapOnInvoiceNumber() {
+
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAButton[6]")).click();
+    }
+
+
+    public void tapOnNumberForThisInvoice() {
+
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[2]/UIAButton[1]")).click();
+    }
+
+
+    public void tapOnOptionalPrefix() {
+
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[2]/UIATextField[2]")).click();
+    }
+
+    public void enterOptionalPrefix(String optionalPrefix) {
+
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[2]/UIATextField[2]")).sendKeys(optionalPrefix);
+    }
+
+
+    public void tapOnNumber(){
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[2]/UIATextField[3]")).click();
+
+    }
+
+
+    public void enterNumber(String number) {
+
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[2]/UIATextField[3]")).clear();
+
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[2]/UIATextField[3]")).sendKeys(number);
+    }
+
+
+
+    public void tapOnSave(){
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[5]")).click();
+
+    }
+
+    public void tapOnDone(){
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[5]")).click();
+
+    }
+
+    public void tapOnCancel(){
+        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[5]")).click();
+    }
 }
+

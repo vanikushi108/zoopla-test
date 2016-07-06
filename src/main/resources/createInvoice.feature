@@ -3,23 +3,23 @@ Feature: create Invoice
   As a user
   I want to be able to create invoice in Albert quickly, easily and simply
   So that I can recieve money from my clients
-
-  Scenario: create Invoice with out bank details
-    Given I click on Login
-    And I enter valid email address
-    And I click on Next button
-    When I enter a valid pincode
-    Then login occurs
-    When I click on add invoice button
-    Then I should see new invoice page
-    And I add amount GBP "100000"
-    And I add invoice description as "New Test Invoice"
-    And I add recipient name
-    Then I enter recipient name as Century Innovations Ltd
-#    And I add recipients email as "vanikushi@mailinator.com"
-    When I click on send button
-    Then I click on Alert No Send Now
-    Then Client should receive invoice
+#
+#  Scenario: create Invoice with out bank details
+#    Given I click on Login
+#    And I enter valid email address
+#    And I click on Next button
+#    When I enter a valid pincode
+#    Then login occurs
+#    When I click on add invoice button
+#    Then I should see new invoice page
+#    And I add amount GBP "100000"
+#    And I add invoice description as "New Test Invoice"
+#    And I add recipient name
+#    Then I enter recipient name as Century Innovations Ltd
+##    And I add recipients email as "vanikushi@mailinator.com"
+##    When I click on send button
+##    Then I click on Alert No Send Now
+#   # Then Client should receive invoice
 
   Scenario Outline: create Invoice with bank details
     Given I click on sign up
@@ -51,11 +51,26 @@ Feature: create Invoice
     And I add my bank sort code
     And I click on save button
     And I click on done
+    And I click on preview invoice
+    When I tap on Arrow Icon
+    And I wait for 20 seconds
     And I click on close button
-    When I click on send button
-    And I wait for 60 seconds
-    Then Client should receive invoice
+    Then I tap on invoice number
+    And I tap on number for this invoice
+    When I tap on my optional prefix
+    And I add optional prefix as "ccc"
+    When I click on Number for this invoice
+    And I enter Number for this invoice as "111"
+    #And I tap on cancel button
+    And I tap on save button
+    And I tap on Done button
+   # When I click on send button
+    ##And I wait for 60 seconds
+    #Then Client should receive invoice
   Examples:
   | email  | pin  | business                |
   | random | 1111 | Century Innovations Ltd |
+
+
+
 

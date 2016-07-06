@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.support.PageFactory;
@@ -135,7 +136,7 @@ public class CreateInvoiceStepdefinitions {
     @Then("^I add my bank account number$")
     public void I_add_my_bank_account_number()   {
 
-        createInvoicePage.enterBankAccountNumber();
+       // createInvoicePage.enterBankAccountNumber();
     }
 
     @Then("^I add my bank sort code$")
@@ -144,10 +145,73 @@ public class CreateInvoiceStepdefinitions {
         createInvoicePage.enterBankSortCode();
     }
 
+   @And("^I click on preview invoice$")
+   public void I_click_on_preview_invoice(){
+       createInvoicePage.clickOnPreviewInvoice();
+
+   }
+    @When("^I tap on Arrow Icon$")
+    public void I_tap_on_Arrow_Icon(){
+        createInvoicePage.tapOnArrowIcon();
+
+    }
     @When("^I wait for (\\d+) seconds$")
     public void iWaitForSeconds(int waitTime) throws Throwable {
         waitAndLogProgress(waitTime);
     }
+
+    @Then("^I tap on invoice number$")
+    public void I_tap_on_invoice_number(){
+        createInvoicePage.tapOnInvoiceNumber();
+
+    }
+   @And("^I tap on number for this invoice$")
+    public void I_tap_on_number_for_this_invoice(){
+       createInvoicePage.tapOnNumberForThisInvoice();
+
+   }
+   @When("^I tap on my optional prefix$")
+     public void I_tap_on_my_optional_prefix(){
+       createInvoicePage.tapOnOptionalPrefix();
+
+   }
+
+    @And("^I add optional prefix as \"([^\"]*)\"$")
+    public void i_add_Optional_Prefix(String OptionalPrefix)   {
+
+        createInvoicePage.enterOptionalPrefix(OptionalPrefix);
+
+    }
+    @When("^I click on Number for this invoice$")
+    public void I_tap_on_number_(){
+        createInvoicePage.tapOnNumber();
+
+    }
+
+    @And("^I enter Number for this invoice as \"([^\"]*)\"$")
+    public void i_enter_Number_for_this_invoice(String number)   {
+
+        createInvoicePage.enterNumber(number);
+
+    }
+    @And("^I tap on save button$")
+    public void I_tap_on_save_button(){
+     createInvoicePage.tapOnSave();
+    }
+
+    @And("^I tap on Done button$")
+    public void I_tap_on_done_button(){
+        createInvoicePage.tapOnDone();
+    }
+    @And("^I tap on cancel button$")
+    public void I_tap_on_cancel_button(){
+        createInvoicePage.tapOnCancel();
+    }
+
+
+
+
+
 
     private void waitAndLogProgress(int waitTime) throws InterruptedException {
 
