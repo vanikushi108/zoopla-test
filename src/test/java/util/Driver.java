@@ -38,7 +38,7 @@ public class Driver {
                     caps.setCapability("platformVersion","9.3");
                     caps.setCapability("platformName", "iOS");
                     caps.setCapability("browserName", "");
-                    capabilities.setCapability("app", "https://github.com/vanikushi108/getalbert/tree/master/app/Albert.zip");
+                    capabilities.setCapability("app", "https://github.com/vanikushi108/getalbert/blob/master/app/Albert.zip");
 
                     //  Appium launcher for Iphone url provided below
                     driver = new IOSDriver(new URL(SauceURL), capabilities);
