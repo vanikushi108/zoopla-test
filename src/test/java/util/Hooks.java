@@ -17,7 +17,7 @@ public class Hooks {
         Driver.initDriver();
 
         //opening firefox browser for web
-        Driver.firefoxDriver();
+//        Driver.firefoxDriver();
 
     }
 
@@ -29,7 +29,7 @@ public class Hooks {
         Driver.driver.quit();
 
         //closing firefox browser
-        Driver.ffDriver.quit();
+//        Driver.ffDriver.quit();
 
        System.out.println("After Scenario");
     }

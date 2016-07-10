@@ -12,7 +12,7 @@ import util.Driver;
 
     public void swipeRight() {
 
-        Driver.driver.swipe(57, 123, 313, 123, 900);
+//        Driver.driver.swipe(57, 123, 313, 123, 900);
 
     }
 
@@ -29,7 +29,7 @@ import util.Driver;
     }
 
     public void swipeLeft() {
-        Driver.driver.swipe(250, 164, 2, 123, 900);
+//        Driver.driver.swipe(250, 164, 2, 123, 900);
 
     }
 

@@ -15,6 +15,7 @@ import java.net.URL;
 
 public class Driver {
     public static AppiumDriver driver;
+//    public static RemoteWebDriver driver;
 
     public static WebDriver ffDriver;
     public static String runType;
@@ -28,21 +29,37 @@ public class Driver {
         runType = (System.getProperty("runType") == null) ? "local" : System.getProperty("runType");
         try {
                 if (runType.equalsIgnoreCase("saucelabs")){
-
-                    DesiredCapabilities capabilities = new DesiredCapabilities();
-
-                    DesiredCapabilities caps = DesiredCapabilities.iphone();
-                    caps.setCapability("appiumVersion", "1.5.3");
-                    caps.setCapability("deviceName","iPhone 6 Plus");
-                    caps.setCapability("deviceOrientation", "portrait");
-                    caps.setCapability("platformVersion","9.3");
-                    caps.setCapability("platformName", "iOS");
-                    caps.setCapability("browserName", "");
-                    capabilities.setCapability("app", "https://github.com/vanikushi108/getalbert/blob/master/app/Albert.zip");
-
-                    //  Appium launcher for Iphone url provided below
-                    driver = new IOSDriver(new URL(SauceURL), capabilities);
                     System.out.println("step1");
+
+                    DesiredCapabilities caps = new DesiredCapabilities();
+                    caps.setCapability("username", "tr-risk-fsp");
+                    caps.setCapability("access-key","36691385-0c41-4a05-ac44-d5f48f76bc1f");
+                    caps.setCapability("platform","OS X 10.10");
+                    caps.setCapability("appiumVersion", "1.5.3");
+                    caps.setCapability("deviceName",System.getProperty("device"));
+                    caps.setCapability("deviceOrientation", "portrait");
+                    caps.setCapability("platformVersion",System.getProperty("iOSversion"));
+                    caps.setCapability("platformName", "iOS");
+
+                    caps.setCapability("app","sauce-storage:Albert.zip");
+                    caps.setCapability("idleTimeout", "999");
+                    caps.setCapability("maxDuration", "10800");
+                    caps.setCapability("commandTimeout", "600");
+
+                    caps.setCapability("recordVideo", false);
+                    caps.setCapability("recordScreenshots", false);
+                    caps.setCapability("recordLogs", false);
+
+                    caps.setCapability("name", "native app in "+System.getProperty("device")+" in iOS "+System.getProperty("iOSversion"));
+
+                    caps.setCapability("passed", "true");
+                    System.out.println("step2");
+                    //  Appium launcher for Iphone url provided below
+                    driver = new IOSDriver(new URL(SauceURL), caps);
+                    System.out.println("step3");
+
+
+
 
                 }else {
                     String workingDir = System.getProperty("user.dir");
@@ -63,7 +80,7 @@ public class Driver {
 
                     //  Appium launcher for Iphone url provided below
                     driver = new IOSDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
-                    System.out.println("step1");
+
                 }
 
         } catch (Exception e) {
