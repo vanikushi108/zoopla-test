@@ -13,25 +13,31 @@ public class Hooks {
 
         System.out.println("Before Scenario");
 
-        //opening appium driver in Simulator for native app
+        //opening IOS driver in Simulator for native app
         Driver.initDriver();
 
+        //opening android driver in Simulator for native app
+        Driver.androidDriver();
+
         //opening firefox browser for web
-//        Driver.firefoxDriver();
+        Driver.firefoxDriver();
 
     }
 
-   @After
+    @After
     public void tear(Scenario scenario) {
 
 
         //closing appium driver in simulator
         Driver.driver.quit();
 
-        //closing firefox browser
-//        Driver.ffDriver.quit();
+        //closing appium driver in simulator
+        Driver.myAndroidDriver.quit();
 
-       System.out.println("After Scenario");
+        //closing firefox browser
+        Driver.ffDriver.quit();
+
+        System.out.println("After Scenario");
     }
 }
 

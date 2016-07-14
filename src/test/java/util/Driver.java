@@ -15,7 +15,8 @@ import java.net.URL;
 
 public class Driver {
     public static AppiumDriver driver;
-//    public static RemoteWebDriver driver;
+    //    public static RemoteWebDriver driver;
+    public static AndroidDriver myAndroidDriver;
 
     public static WebDriver ffDriver;
     public static String runType;
@@ -28,60 +29,57 @@ public class Driver {
     public static void initDriver() {
         runType = (System.getProperty("runType") == null) ? "local" : System.getProperty("runType");
         try {
-                if (runType.equalsIgnoreCase("saucelabs")){
-                    System.out.println("step1");
+            if (runType.equalsIgnoreCase("saucelabs")) {
+                System.out.println("step1");
 
-                    DesiredCapabilities caps = new DesiredCapabilities();
-                    caps.setCapability("username", "tr-risk-fsp");
-                    caps.setCapability("access-key","36691385-0c41-4a05-ac44-d5f48f76bc1f");
-                    caps.setCapability("platform","OS X 10.10");
-                    caps.setCapability("appiumVersion", "1.5.3");
-                    caps.setCapability("deviceName",System.getProperty("device"));
-                    caps.setCapability("deviceOrientation", "portrait");
-                    caps.setCapability("platformVersion",System.getProperty("iOSversion"));
-                    caps.setCapability("platformName", "iOS");
+                DesiredCapabilities caps = new DesiredCapabilities();
+                caps.setCapability("username", "tr-risk-fsp");
+                caps.setCapability("access-key", "36691385-0c41-4a05-ac44-d5f48f76bc1f");
+                caps.setCapability("platform", "OS X 10.10");
+                caps.setCapability("appiumVersion", "1.5.3");
+                caps.setCapability("deviceName", System.getProperty("device"));
+                caps.setCapability("deviceOrientation", "portrait");
+                caps.setCapability("platformVersion", System.getProperty("iOSversion"));
+                caps.setCapability("platformName", "iOS");
 
-                    caps.setCapability("app","sauce-storage:Albert.zip");
-                    caps.setCapability("idleTimeout", "999");
-                    caps.setCapability("maxDuration", "10800");
-                    caps.setCapability("commandTimeout", "600");
+                caps.setCapability("app", "sauce-storage:Albert.zip");
+                caps.setCapability("idleTimeout", "999");
+                caps.setCapability("maxDuration", "10800");
+                caps.setCapability("commandTimeout", "600");
 
-                    caps.setCapability("recordVideo", false);
-                    caps.setCapability("recordScreenshots", false);
-                    caps.setCapability("recordLogs", false);
+                caps.setCapability("recordVideo", false);
+                caps.setCapability("recordScreenshots", false);
+                caps.setCapability("recordLogs", false);
 
-                    caps.setCapability("name", "native app in "+System.getProperty("device")+" in iOS "+System.getProperty("iOSversion"));
+                caps.setCapability("name", "native app in " + System.getProperty("device") + " in iOS " + System.getProperty("iOSversion"));
 
-                    caps.setCapability("passed", "true");
-                    System.out.println("step2");
-                    //  Appium launcher for Iphone url provided below
-                    driver = new IOSDriver(new URL(SauceURL), caps);
-                    System.out.println("step3");
+                caps.setCapability("passed", "true");
+                System.out.println("step2");
+                //  Appium launcher for Iphone url provided below
+                driver = new IOSDriver(new URL(SauceURL), caps);
+                System.out.println("step3");
 
+            } else {
+                String workingDir = System.getProperty("user.dir");
+                System.out.println("Current working directory" + workingDir);
 
+                File appDir = new File(workingDir + "/app");
+                File app = new File(appDir, "Albert.app");
 
+                DesiredCapabilities capabilities = new DesiredCapabilities();
 
-                }else {
-                    String workingDir = System.getProperty("user.dir");
-                    System.out.println("Current working directory" + workingDir);
+                capabilities.setCapability(CapabilityType.VERSION, "9.3");
+                capabilities.setCapability(CapabilityType.PLATFORM, "Mac");
+                capabilities.setCapability("platformName", "iOS");
+                capabilities.setCapability("deviceName", "iPhone 6 Plus");
+                capabilities.setCapability("platformVersion", "9.3");
 
-                    File appDir = new File(workingDir + "/app");
-                    File app = new File(appDir, "Albert.app");
+                capabilities.setCapability("app", app.getAbsolutePath());
 
-                    DesiredCapabilities capabilities = new DesiredCapabilities();
+                //  Appium launcher for Iphone url provided below
+                driver = new IOSDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
 
-                    capabilities.setCapability(CapabilityType.VERSION, "9.3");
-                    capabilities.setCapability(CapabilityType.PLATFORM, "Mac");
-                    capabilities.setCapability("platformName", "iOS");
-                    capabilities.setCapability("deviceName", "iPhone 6 Plus");
-                    capabilities.setCapability("platformVersion", "9.3");
-
-                    capabilities.setCapability("app", app.getAbsolutePath());
-
-                    //  Appium launcher for Iphone url provided below
-                    driver = new IOSDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
-
-                }
+            }
 
         } catch (Exception e) {
             System.out.println("Error on intializing Albert App");
@@ -93,14 +91,14 @@ public class Driver {
 
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformName", "Android");
-            capabilities.setCapability("platformVersion", "5.1.1");
+            capabilities.setCapability("platformVersion", "5.1");
             capabilities.setCapability("deviceName", "HTC ONE");
-            capabilities.setCapability("appPackage", "com.asos.app");
+            capabilities.setCapability("appPackage", "com.riverisland.android");
             capabilities.setCapability("noReset", true);
-            capabilities.setCapability("appActivity", "com.asos.app.ui.activities.HomeActivity");
+            capabilities.setCapability("appActivity", "com.riverisland.android.StartupActivity");
 
             //  Appium launcher for android url provided below
-            driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+            myAndroidDriver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
             System.out.println("step1");
 
         } catch (Exception e) {
