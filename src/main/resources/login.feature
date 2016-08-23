@@ -11,5 +11,3 @@ Feature: Login to Albert
     When I enter a valid pincode
     Then login occurs
     And I access my user account.
-
-

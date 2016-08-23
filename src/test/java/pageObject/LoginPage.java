@@ -1,31 +1,49 @@
 package pageObject;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import util.Driver;
+
+import static util.Driver.iOSdriver;
 
 /**
  * Created by vanithakasala on 05/05/2016.
  */
 public class LoginPage {
 
-    public void tapOnLogin() {
+    @FindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]")
+    private WebElement Login;
 
-        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[2]")).click();
+    @FindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]")
+    private WebElement EmailId;
+
+    @FindBy(xpath = "//*[@name='BtnNextEnabled']")
+    private WebElement Next;
+
+    @FindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIAButton[3]")
+    private WebElement PinCode;
+
+    public LoginPage(){
+        PageFactory.initElements(iOSdriver, this);
+    }
+
+    public void tapOnLogin() {
+        Login.click();
     }
 
     public void ValidEmailId() {
-
-        Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATextField[1]")).sendKeys("test1002@mailinator.com");
+        EmailId.sendKeys("test1002@mailinator.com");
     }
 
     public void tapOnnext() {
-
-        Driver.driver.findElement(By.xpath("//*[@name='BtnNextEnabled']")).click();
+        Next.click();
     }
 
     public void validPinCode() {
         for (int i = 0; i < 4; i++) {
-            Driver.driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[3]")).click();
+            PinCode.click();
         }
     }
 }

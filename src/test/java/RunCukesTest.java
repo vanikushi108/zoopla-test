@@ -6,8 +6,7 @@ import org.junit.runner.RunWith;
 
 @CucumberOptions(
         format = {"html:target/cucumber"},
-        tags = {"@login"}
-
+        tags = {"@search"}
 )
 
 public class RunCukesTest {

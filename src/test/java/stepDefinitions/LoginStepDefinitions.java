@@ -8,10 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 import util.Driver;
 import pageObject.LoginPage;
 
-
+/**
+ * Created by vanithakasala on 26/05/2016.
+ */
 public class LoginStepDefinitions {
 
-    LoginPage loginPage = PageFactory.initElements(Driver.driver, LoginPage.class);
+    LoginPage loginPage = PageFactory.initElements(Driver.iOSdriver, LoginPage.class);
 
     @Given("^I click on Login$")
     public void i_tap_on_Login() {
