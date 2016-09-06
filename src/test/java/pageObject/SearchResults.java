@@ -14,33 +14,39 @@ import java.util.List;
  */
 public class SearchResults extends Driver {
 
-    @FindAll({@FindBy(css = "#rso .g .rc .r a"),
-            @FindBy(css = "#rso .g ._Zfh ._ksh a")
+    @FindBy(css = ".maps-area-name>b")
+    private WebElement location;
 
-    })
-    private List<WebElement> listOfResults;
+    @FindBy(css = ".icon.icon-list")
+    private WebElement listView;
 
-    @FindBy(css = "#rso .g")
-    private WebElement firstSearchResult;
+    @FindBy(css = ".icon.icon-grid")
+    private WebElement gridView;
+
+    @FindBy(css = ".icon.icon-location")
+    private WebElement mapView;
 
     public SearchResults() {
         PageFactory.initElements(webDriver, this);
     }
 
-    public boolean isLinkWithinSetOfResults(String expectedHref) {
+    public String getLocation() {
+        FluentWait.findElement(webDriver, location);
+        return location.getText();
+    }
 
-        FluentWait.findElement(webDriver, firstSearchResult);
+    public boolean isListViewEnabled() {
+        FluentWait.findElement(webDriver, listView);
+        return listView.isEnabled();
+    }
 
-        String actualHref;
+    public boolean isGridViewEnabled() {
+        FluentWait.findElement(webDriver, gridView);
+        return gridView.isEnabled();
+    }
 
-        for (WebElement element : listOfResults) {
-
-            actualHref = element.getAttribute("href");
-
-            if (actualHref.equals(expectedHref)) {
-                return true;
-            }
-        }
-        return false;
+    public boolean isMapViewEnabled() {
+        FluentWait.findElement(webDriver, mapView);
+        return mapView.isEnabled();
     }
 }

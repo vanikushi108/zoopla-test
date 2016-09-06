@@ -13,16 +13,16 @@ import static util.Driver.iOSdriver;
  */
 public class LoginPage {
 
-    @FindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]")
+    @FindBy(xpath = "//*[@name='Login']")
     private WebElement Login;
 
-    @FindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]")
+    @FindBy(xpath = "//*[@name='EmailId']")
     private WebElement EmailId;
 
     @FindBy(xpath = "//*[@name='BtnNextEnabled']")
     private WebElement Next;
 
-    @FindBy(xpath = "//UIAApplication[1]/UIAWindow[1]/UIAButton[3]")
+    @FindBy(xpath = "//*[@name='PinCode']")
     private WebElement PinCode;
 
     public LoginPage(){

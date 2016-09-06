@@ -31,7 +31,7 @@ public class RestApiGetMethodStepDefinitions {
                 .given()
                     .contentType("application/json")
                 .when()
-                    .get("https://spiderpig-staging.herokuapp.com/api/messages/5735b863ad9a6303001d62161108")
+                    .get("https://restapi-get-staging.heroku.com/api/messages/5735b89a6303001d62161108")
                 .then()
                     .statusCode(200)
                     .body("_mid", containsString("5735b863ad9a6303001d62161108"))

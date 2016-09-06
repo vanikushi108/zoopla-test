@@ -12,8 +12,8 @@ public class Hooks {
 
     @Before
     public void beforeScenario() {
-//        Driver.appiumDriver();
-        Driver.firefoxDriver();
+//        Driver.getIOSDriver();
+        Driver.getWebDriver();
     }
 
     @After

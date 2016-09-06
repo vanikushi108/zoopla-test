@@ -35,13 +35,5 @@ public class LoginStepDefinitions {
         loginPage.validPinCode();
     }
 
-    @Then("^login occurs$")
-    public void login_successful() {
 
-    }
-
-    @Then("^I access my user account.$")
-    public void I_access_my_user_account() {
-
-    }
 }

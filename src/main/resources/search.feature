@@ -1,10 +1,18 @@
 @search
-Feature: E:Fundamentals Search
+Feature: Zoopla Search
   AS A User
-  I WANT TO perform a search using the google search engine for the term E:Fundamentals
-  SO THAT I can investigate the returned search results
+  I WANT TO perform a search using the Zoopla
+  SO THAT I can see rented properties
 
-  Scenario: A user searches for E:Fundamentals
-    Given I am on the google search page
-    When I search for the term "E Fundamentals"
-    Then the E Fundamentals company website link is returned within the results
+  Scenario: A user searches for rented properties on Zoopla
+    Given I am on the zoopla home page
+    And I click on To rent tab
+    And I Enter "Portsmouth" in the Search field
+    And I Select Min rent to "£500 pcm"
+    And I Select Max rent to "£2,000 pcm"
+    And I Select Property type  as "Flats"
+    When I Click on Search button
+    Then I see properties displayed are to rent in "Portsmouth"
+    And I see the default list view as "true"
+    And I see the grid view as "false"
+    And I see the map view as "false"

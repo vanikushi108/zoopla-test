@@ -10,6 +10,7 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+
 import java.io.File;
 import java.net.URL;
 /**
@@ -18,8 +19,9 @@ import java.net.URL;
 public class Driver {
     public static AppiumDriver iOSdriver;
     public static WebDriver webDriver;
+    protected static final org.slf4j.Logger LOG = org.slf4j.LoggerFactory.getLogger(Driver.class);
 
-    public static void appiumDriver() {
+    public static void getIOSDriver() {
        try {
                 String workingDir = System.getProperty("user.dir");
                 File appDir = new File(workingDir + "/app");
@@ -33,15 +35,17 @@ public class Driver {
                 capabilities.setCapability("app", app.getAbsolutePath());
                 iOSdriver = new IOSDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
         } catch (Exception e) {
-            System.out.println("Error on intializing Albert App");
+           LOG.error("Error on intializing Albert App");
+           LOG.error("", e);
         }
     }
 
-    public static void firefoxDriver() {
+    public static void getWebDriver() {
         try {
             webDriver = new FirefoxDriver();
         } catch (Exception e) {
-            System.out.println("Error on intializing firefox browser");
+            LOG.error("Error on intializing firefox browser");
+            LOG.error("", e);
         }
     }
 }
