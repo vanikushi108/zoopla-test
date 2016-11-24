@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-import selectors.SearchSelectors;
+
 import util.Driver;
 import util.FluentWait;
 
@@ -39,7 +39,7 @@ public class Search extends Driver {
     }
 
     public static void navigateToHomePage() {
-    	webDriver.get(SearchSelectors.ZOOPLA_HOME_PAGE);
+    	webDriver.get("http://www.zoopla.co.uk/");
     }
 
     public void enterSearchTerm(String searchTerm) {
@@ -68,9 +68,5 @@ public class Search extends Driver {
         dropdown.selectByVisibleText(houseType);
     }
 
-    public SearchResults clickSearchButton() {
-        searchButton = FluentWait.findElement(webDriver, searchButton);
-        searchButton.click();
-        return new SearchResults();
-    }
+
 }

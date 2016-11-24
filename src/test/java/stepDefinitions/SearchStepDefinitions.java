@@ -1,13 +1,10 @@
 package stepDefinitions;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.junit.Assert;
 import pageObject.Search;
-import pageObject.SearchResults;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,7 +14,6 @@ import static org.junit.Assert.assertEquals;
 public class SearchStepDefinitions {
 
     Search searchPage = new Search();
-    SearchResults searchResultsPage = new SearchResults();
 
     @Given("^I am on the zoopla home page$")
     public void navigateToHomePage() throws Throwable {
@@ -49,28 +45,5 @@ public class SearchStepDefinitions {
         searchPage.selectPropertyType(houseType);
     }
 
-    @When("^I Click on Search button$")
-    public void iClickOnSearchButton() throws Throwable {
-        searchPage.clickSearchButton();
-    }
 
-    @Then("^I see properties displayed are to rent in \"([^\"]*)\"$")
-    public void iSeePropertiesDisplayedAreToRentIn(String location) throws Throwable {
-        assertEquals(location, searchResultsPage.getLocation());
-    }
-
-    @And("^I see the default list view as \"([^\"]*)\"$")
-    public void iSeeTheDefaultListViewAs(String flag) throws Throwable {
-        assertEquals(flag, searchResultsPage.isListViewEnabled());
-    }
-
-    @And("^I see the grid view as \"([^\"]*)\"$")
-    public void iSeeTheGridViewAs(String flag) throws Throwable {
-        assertEquals(flag, searchResultsPage.isGridViewEnabled());
-    }
-
-    @And("^I see the map view as \"([^\"]*)\"$")
-    public void iSeeTheMapViewAs(String flag) throws Throwable {
-        assertEquals(flag, searchResultsPage.isMapViewEnabled());
-    }
 }
